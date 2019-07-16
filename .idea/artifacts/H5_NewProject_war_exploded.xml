@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="H5 NewProject:war exploded">
+    <output-path>$PROJECT_DIR$/../H5 NewProject/out/artifacts/H5_NewProject_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="H5 NewProject/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="H5 NewProject" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

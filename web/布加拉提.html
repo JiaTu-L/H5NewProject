@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一键上线</title>
+    <script type="text/javascript">
+        function online() {
+            var pic1 = document.getElementById("pic1");
+            var pic2 = document.getElementById("pic2");
+            var pic3 = document.getElementById("pic3");
+            var btn = document.getElementById("btn");
+            var displaystr = pic1.style.display;
+            if(displaystr=='block'){
+                pic1.style.display='none';
+                pic2.style.display='none';
+                pic3.style.display='none';
+                btn.value="上线!";
+            }else {
+                pic1.style.display='block';
+                pic2.style.display='block';
+                pic3.style.display='block';
+                btn.value="下线!";
+            }
+        }
+    </script>
+    <style type="text/css">
+        div{
+            align-content: center;
+            text-align: center;
+        }
+        img{
+            border: 2px;
+            float: left;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input type="button" value="上线!" id="btn" onclick="online()">
+</div>
+    <div>
+    <img src="images/布姐.jpg" id="pic1" style="display: none"/>
+    <img src="images/布姐.jpg" id="pic2" style="display: none"/>
+    <img src="images/布姐.jpg" id="pic3" style="display: none"/>
+    </div>
+</body>
+</html>

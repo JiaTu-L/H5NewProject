@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作表格</title>
+    <script type="text/javascript">
+        function addList() {
+            var tableOjb = document.getElementById("table");
+            var newTr = document.createElement("tr");
+            var newTd1 = document.createElement("td");
+            var newTd2 = document.createElement("td");
+            newTd1.innerHTML="幸福从天而降";
+            newTd2.innerHTML="￥18.50";
+            tableOjb.lastElementChild.appendChild(newTr);
+            // tableOjb.lastElementChild.insertBefore(newTr,tableOjb.lastElementChild.lastElementChild)
+            newTr.appendChild(newTd1);
+            newTr.appendChild(newTd2);
+        }
+        function deleteLastList() {
+            var oldTable = document.getElementById("table");
+            var tbody = oldTable.lastElementChild;
+            var lastList = tbody.lastElementChild;
+            tbody.removeChild(lastList);
+        }
+        function alterTitle() {
+            var tableObj = document.getElementById("table");
+            var thead = tableObj.firstElementChild;
+            var oldTr = thead.firstElementChild;
+            var oldTd1 = oldTr.firstElementChild;
+            var oldTd2 = oldTr.lastElementChild;
+            var newTr = document.createElement("tr");
+            newTr.appendChild(oldTd1);
+            newTr.appendChild(oldTd2);
+            newTr.setAttribute("style","text-align:center;font-weight:bold;background-color:#ccc");
+            thead.replaceChild(newTr,oldTr);
+        }
+        function copyLastList() {
+            var oldTable = document.getElementById("table");
+            var newTr = document.createElement("tr");
+            var newTd1 = document.createElement("td");
+            var newTd2 = document.createElement("td");
+            var tbody = oldTable.lastElementChild;
+            var lastList = tbody.lastElementChild;
+            newTd1.innerHTML=lastList.firstElementChild.innerHTML;
+            newTd2.innerHTML=lastList.lastElementChild.innerHTML;
+            tbody.appendChild(newTr);
+            newTr.appendChild(newTd1);
+            newTr.appendChild(newTd2);
+        }
+    </script>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<table  border="1" width="300" id="table">
+    <thead>
+    <tr>
+        <td>书名</td>
+        <td>价格</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>看得见风景的房间</td>
+        <td>￥30.00</td>
+    </tr>
+    <tr><td>60个瞬间</td>
+        <td>￥32.00</td>
+    </tr>
+    </tbody>
+</table>
+<input type="button" id="add" value="增加一行" onclick="addList()">
+<input type="button" id="delete" value="删除最后一行" onclick="deleteLastList()">
+<input type="button" id="alter" value="修改标题样式" onclick="alterTitle()">
+<input type="button" id="copy" value="复制最后一行" onclick="copyLastList()">
+</body>
+</html>

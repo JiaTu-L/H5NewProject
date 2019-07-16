@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改订单</title>
+    <script type="text/javascript">
+        function add() {
+            var oldtable = document.getElementById("table");
+            var oldTFoot = oldtable.lastElementChild;
+            var oldTbody = oldTFoot.previousElementSibling;
+            var newTr = document.createElement("tr");
+            var newTd1 = document.createElement("td");
+            var newTd2 = document.createElement("td");
+            var newTd3 = document.createElement("td");
+            var newTd4 = document.createElement("td");
+            var newInput1 = document.createElement("input");
+            var newInput2 = document.createElement("input");
+            newTd1.innerHTML = "抗疲劳神奇钛项圈";
+            newTd2.innerHTML = 4;
+            newTd3.innerHTML = "￥49.00";
+            newTd4.appendChild(newInput1);
+            newTd4.appendChild(newInput2);
+            newTr.appendChild(newTd1);
+            newTr.appendChild(newTd2);
+            newTr.appendChild(newTd3);
+            newTr.appendChild(newTd4);
+            oldTbody.appendChild(newTr);
+            newInput1.setAttribute("type","button");
+            newInput1.setAttribute("value","删除");
+            newInput2.setAttribute("type","button");
+            newInput2.setAttribute("value","修改");
+            newInput2.setAttribute("onclick","alterList(this)");
+        }
+        function alterList(obj) {
+            var tr = obj.parentNode.parentNode;
+            var tds = tr.getElementsByTagName("td");
+            var td = tds[1];
+            var content = td.innerHTML;
+            td.innerHTML = '<input type="text" value="'+content+'">';
+            obj.value = "确定";
+            obj.onclick = function (){
+                onsave(obj);
+            }
+        }
+        function onsave(obj) {
+            var tr = obj.parentNode.parentNode;
+            var tds = tr.getElementsByTagName("td");
+            var td = tds[1];
+            var put = td.firstElementChild;
+            var content = put.value;
+            td.innerHTML = content;
+            obj.value = "修改";
+            obj.onclick = function (){
+                alterList(obj);
+            }
+        }
+
+    </script>
+</head>
+<body>
+<table border="1" width="500" style="text-align: center" id="table">
+    <thead style="background-color: #ccc;font-weight: bold">
+    <tr>
+        <td>商品名称</td>
+        <td>数量</td>
+        <td>价格</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>防滑真皮休闲鞋</td>
+        <td>12</td>
+        <td>￥568.50</td>
+        <td>
+            <input type="button" value="删除">
+            <input type="button" value="修改" onclick="alterList(this)">
+        </td>
+    </tr>
+    <tr>
+        <td>抗疲劳神奇钛项圈</td>
+        <td>2</td>
+        <td>￥49.00</td>
+        <td>
+            <input type="button" value="删除">
+            <input type="button" value="修改" onclick="alterList(this)">
+        </td>
+    </tr>
+    <tr>
+        <td>抗疲劳神奇钛项圈</td>
+        <td>15</td>
+        <td>￥49.00</td>
+        <td>
+            <input type="button" value="删除">
+            <input type="button" value="修改" onclick="alterList(this)">
+        </td>
+    </tr>
+    <tr>
+        <td>抗疲劳神奇钛项圈</td>
+        <td>4</td>
+        <td>￥49.00</td>
+        <td>
+            <input type="button" value="删除">
+            <input type="button" value="修改" onclick="alterList(this)">
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4"><input type="button" value="增加订单" onclick="add()"></td>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>

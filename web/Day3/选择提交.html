@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择提交</title>
+    <script type="text/javascript">
+        function getValue() {
+            var contents = document.getElementsByName("content");
+            var value;
+            for (i = 0; i < contents.length; i++) {
+                if (contents[i].checked) {
+                    if (!value) {
+                        value = contents[i].value;
+                    } else {
+                        value +="\n" + contents[i].value;
+                    }
+                }
+            }
+            if (value == null) {
+                alert("您确定什么都不选吗？");
+            } else {
+            var flag = confirm("您选择了:\n" + value + "\n\n确定要提交吗？");
+            if(flag){
+                alert("提交成功！");
+            }
+            }
+        }
+    </script>
+    <style>
+        form{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<form>
+    <div>
+        选择你认为难以消化的内容：<br/><br/>
+    </div>
+    <input type="checkbox" name="content" value="算法">算法&nbsp;
+    <input type="checkbox" name="content" value="设计模式">设计模式&nbsp;
+    <input type="checkbox" name="content" value="XML编程">XML编程&nbsp;
+    <input type="checkbox" name="content" value="Struts2">Struts2&nbsp;<br/>
+    <input type="checkbox" name="content" value="Spring">Spring&nbsp;
+    <input type="checkbox" name="content" value="Hibernate">Hibernate&nbsp;<br/><br/>
+    <input type="button" value="提交" onclick="getValue()">
+    <input type="button" value="刷新" onclick=window.location="">
+</form>
+
+</body>
+</html>

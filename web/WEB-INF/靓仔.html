@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+    <script type="text/javascript">
+        function getValue() {
+            var contents = document.getElementsByName("content");
+            var value;
+            for (i = 0; i < contents.length; i++) {
+                if (contents[i].checked) {
+                    if (!value) {
+                        value = contents[i].value;
+                    } else {
+                        value = value + "\n" + contents[i].value;
+                    }
+                }
+            }
+            if (value == null || value == "") {
+                alert("你确定唔选？");
+                alert("你确定？");
+                alert("求求你多霖几下啦！！");
+                alert("你确定唔在霖多几下？");
+                alert("你真系确定？");
+                alert("比多次机会啦~~");
+                alert("比你选多次机会。");
+            } else {
+                alert("你真系觉得我系" + value + "？");
+                alert("你真系一个醒目仔！");
+            }
+        }
+    </script>
+    <style type="text/css">
+        form{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div>
+        你觉得我系咩野：<br/><br/>
+    </div>
+    <input type="checkbox" name="content" value="靓仔">靓仔&nbsp;
+    <input type="checkbox" name="content" value="醒目仔">醒目仔&nbsp;
+    <input type="checkbox" name="content" value="聪明仔">聪明仔&nbsp;
+    <input type="checkbox" name="content" value="天才">天才&nbsp;<br/>
+    <input type="button" value="点我" onclick="getValue()">
+    <input type="button" value="重新选过" onclick=window.location="">
+</form>
+</body>
+</html>

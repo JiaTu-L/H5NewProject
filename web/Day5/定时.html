@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时</title>
+    <script type="text/javascript">
+        function onTime() {
+            var today = new Date();
+            var days = today.getDay();
+            var years = today.getFullYear();
+            var months = today.getMonth();
+            var data = today.getDate();
+            var hours = today.getHours();
+            var minutes = today.getMinutes();
+            var seconds = today.getSeconds();
+            var time = today.getTime();
+            var a="";
+            var b=["一","二","三","四","五","六","天"];
+            days = b[days-1];
+            if(hours>0 && hours<12){
+                a="上午";
+            }else if(hours>=12 && hours<=18 && minutes>0){
+                a="下午";
+            }else {
+                a="晚上";
+            }
+            if(hours>12){
+                hours-=12;
+            }
+            if(seconds<10){
+                seconds="0"+seconds;
+            }
+            var str = years + "年" + (months+1) + "月" + data + "日\t"+ hours + ":" + minutes + ":" + seconds+"\t"+a+"\t星期"+days;
+            document.getElementById("div1").innerText = str;
+        }
+        window.setInterval("onTime()",1000);
+    </script>
+</head>
+<body>
+<div>你好，欢迎来到我的主页：</div>
+<div id="div1"></div>
+</body>
+</html>

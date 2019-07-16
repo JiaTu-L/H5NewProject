@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片轮播效果</title>
+    <script type="text/javascript">
+        var index=1;
+        function changePic() {
+            var picture = document.getElementById("pic");
+            var li = document.getElementsByTagName("li");
+            for (var i = 0; i <li.length ; i++) {
+                li[i].className='point_out';
+            }
+            picture.src = "../images/scroll_"+index+".jpg";
+            li[index-1].className='point_over';
+            if(index>=li.length){
+                index = 1;
+            }else {
+                index++;
+            }
+
+        }
+        myVar = window.setInterval(changePic,1000);
+        function mousesOn(obj) {
+            var picture = document.getElementById("pic");
+            var li = document.getElementsByTagName("li");
+            var index = obj.innerHTML;
+            for (var i = 0; i <li.length ; i++) {
+                li[i].className='point_out';
+            }
+            clearInterval(myVar);
+            picture.src = "../images/scroll_"+index+".jpg";
+            li[index-1].className='point_over';
+        }
+        function mouseOut() {
+            myVar = window.setInterval(changePic,1000);
+        }
+
+    </script>
+    <style type="text/css">
+        img{
+            float: left;
+            height:300px;
+            width:500px;
+        }
+        ul{
+            list-style: none;
+            float: left;
+        }
+        ul li{
+            width:13px;
+            height:13px;
+            text-align:center;
+            border:solid 1px #999;
+            font-size:12px;
+            line-height:16px;
+            margin-top:5px;
+            cursor:pointer;
+        }
+        .point_over{
+            background-color:#F96;
+            color:#FFF;
+        }
+        .point_out{
+            background-color: #FFF;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+<img src="../images/scroll_1.jpg" id="pic" >
+<ul>
+    <li onmouseover="mousesOn(this)"
+        onmouseout="mouseOut()"
+        class="point_out">1</li>
+    <li onmouseover="mousesOn(this)"
+        onmouseout="mouseOut()"
+        class="point_out">2</li>
+    <li onmouseover="mousesOn(this)"
+        onmouseout="mouseOut()"
+        class="point_out">3</li>
+    <li onmouseover="mousesOn(this)"
+        onmouseout="mouseOut()"
+        class="point_out">4</li>
+    <li onmouseover="mousesOn(this)"
+        onmouseout="mouseOut()"
+        class="point_out">5</li>
+    <li onmouseover="mousesOn(this)"
+        onmouseout="mouseOut()"
+        class="point_out">6</li>
+</ul>
+</body>
+</html>
